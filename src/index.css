@@ -52,6 +52,32 @@ ul {
   padding: 0 20px;
 }
 
+/* Responsive Grid for Certs/Edu */
+.responsive-grid {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  h1 {
+    font-size: 3rem !important;
+  }
+  
+  h2 {
+    font-size: 1.8rem !important;
+  }
+
+  header.hero {
+    padding: 80px 0 40px 0 !important;
+  }
+}
+
 section {
   padding: 80px 0;
 }

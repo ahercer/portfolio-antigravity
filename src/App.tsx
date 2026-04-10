@@ -231,7 +231,21 @@ function App() {
           <p>{t.heroDesc2}</p>
         </div>
         <div style={{ marginTop: '40px' }}>
-          <a href="https://drive.google.com/file/d/1Nbe_x5PSTW1lOTRCvKtAd-Syw7jWTLsL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="antigravity-hover" style={{ padding: '12px 32px', background: 'var(--fabric-blue)', color: 'white', borderRadius: '4px', fontWeight: 'bold', display: 'inline-block' }}>{t.downloadBtn}</a>
+          <a 
+            href="/Anna_Hercer_CV.pdf" 
+            download
+            className="antigravity-hover" 
+            style={{ 
+              padding: '12px 32px', 
+              background: 'var(--fabric-blue)', 
+              color: 'white', 
+              borderRadius: '4px', 
+              fontWeight: 'bold', 
+              display: 'inline-block' 
+            }}
+          >
+            {t.downloadBtn}
+          </a>
         </div>
       </header>
 
@@ -267,7 +281,7 @@ function App() {
         </div>
       </section>
 
-      <section className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '40px' }}>
+      <section className="container responsive-grid">
         <div>
           <h2>{t.certificationsTitle}</h2>
           <div className="antigravity-hover" style={{ background: 'var(--card-bg)', padding: '20px', borderRadius: '8px', borderLeft: '4px solid var(--powerbi-yellow)' }}>

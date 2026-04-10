@@ -5,7 +5,8 @@
   --fabric-blue: #0078D4;
   --azure-purple: #5C2D91;
   --powerbi-yellow: #F2C811;
-  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(15, 23, 42, 0.85); /* Ciemniejszy, gęstszy podkład zamiast czystej bieli */
+  --card-border: rgba(255, 255, 255, 0.1);
   --transition-speed: 0.3s;
 }
 
@@ -35,15 +36,55 @@ ul {
 /* Antigravity utility class */
 .antigravity-hover {
   transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  backdrop-filter: blur(10px); /* Rozmycie tła pod kartą dla lepszej czytelności */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
 }
 
 .antigravity-hover:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 30px rgba(0, 120, 212, 0.2);
+  border-color: var(--fabric-blue); /* Delikatne podświetlenie ramki przy hoverze */
 }
 
 .location-link:hover {
   color: var(--fabric-blue) !important;
+}
+
+/* Subtle Background Image Layer */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-image: url('../Images/Portfolio background.png');
+  background-size: 110%; /* Lekkie przybliżenie dla detali diagramów */
+  background-position: 98% 98%; /* Skupienie na dolnym prawym rogu (diagramy i koniec fali) */
+  background-repeat: no-repeat;
+  opacity: 0.14; 
+  filter: grayscale(20%) brightness(1.1) contrast(1.7);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: bg-drift-diagonal 90s ease-in-out infinite alternate; /* Ruch diagonalny wzdłuż fali */
+}
+
+@keyframes bg-drift-diagonal {
+  from { background-position: 98% 98%; }
+  to { background-position: 92% 92%; }
+}
+
+/* Optional: Radial mask to keep center text even more readable */
+.background-vignette {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at center, transparent 0%, var(--bg-color) 105%);
+  pointer-events: none;
 }
 
 .container {
